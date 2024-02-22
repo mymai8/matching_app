@@ -1,0 +1,52 @@
+.side-bar {
+  background-color: #ffe9e0;
+  width: 300px;
+  height: calc(100vh - 100px - 50px);
+  position: fixed;
+  top: 100px;
+  left: 0;
+  overflow: hidden scroll;
+}
+
+.coach-title {
+  font-size: 32px;
+  padding-top: 30px;
+  text-align: center;
+}
+
+.coach-title a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.student-title {
+  font-size: 32px;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.student-title a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.room-title {
+  font-size: 32px;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.room-title a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.room {
+  padding: 10px;
+  text-align: center;
+}
+
+.room-name a {
+  text-decoration: none;
+  color: #000000;
+}

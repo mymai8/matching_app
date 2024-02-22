@@ -1,0 +1,51 @@
+<div class="wrapper">
+  <%= render "shared/header" %>
+  <div class="side-bar">
+    <%= render "shared/side_bar" %>
+  </div>
+  <div class="main">
+    <h2>ユーザー情報編集</h2>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :メールアドレス %><br />
+        <%= f.text_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :新しいパスワード %> <i>(変更しない場合は空白のままにしてください)</i><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+        <% if @minimum_password_length %>
+          <br />
+            <em><%= @minimum_password_length %>文字以上</em>
+        <% end %>
+      </div>
+
+      <div class="field">
+        <%= f.label :パスワード確認 %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :現在のパスワード %> <i>(パスワードの変更には現在のパスワードが必要です)</i><br />
+        <%= f.password_field :current_password, autocomplete: "current-password" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "変更" %>
+      </div>
+    <% end %>
+  </div>
+  <%= render "shared/footer" %>
+</div>
+
+<h3>Cancel my account</h3>
+
+<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
+
+<%= link_to "Back", :back %>

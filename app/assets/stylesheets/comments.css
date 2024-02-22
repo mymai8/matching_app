@@ -1,0 +1,39 @@
+.comments h4 {
+  padding-top: 30px;
+}
+
+.comment-form{
+  display: flex;
+}
+
+.comment-text{
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.comment-submit{
+  border: 1px solid #ffaf80;
+  background-color: #ffe7dc;
+  border-radius: 4px;
+  height: 33px;
+  width: 115px;
+  padding: 5px 10px;
+  margin-right: 20px;
+  text-decoration: none;
+  color: black;
+  font-size: 13px;
+}
+
+.comment{
+  display: flex;
+}
+
+.comment p{
+   margin: 0;
+}
+
+.user-info{
+  color: gray;
+  font-weight: bold;
+}
