@@ -1,0 +1,103 @@
+.input-default {
+  width: 250px;
+  margin-top: 5px;
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  resize: none;
+  margin-bottom: 5vh;
+}
+
+/* カード情報の入力 */
+.credit-card-form {
+  margin-top: 15px;
+  padding-bottom: 30px;
+}
+
+.info-input-haedline {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.available-card {
+  display: flex;
+  height: 35px;
+}
+
+.card-logo {
+  width: 40px;
+  margin: 5px 5px;
+}
+
+.input-expiration-date-wrap {
+  width: 100%;
+  display: flex;
+  text-align: center;
+  line-height: 55px;
+}
+
+.input-expiration-date {
+  width: 20%;
+  margin-top: 5px;
+  height: 48px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  resize: none;
+  line-height: 45px;
+  text-align: center;
+}
+
+.input-default {
+  height: 30px;
+  width: 400px;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ffaf80;
+  font-size: 16px;
+  resize: none;
+  margin-top: 1vh;
+  margin-bottom: 5vh;
+}
+
+/* /カード情報の入力 */
+
+.goal-text {
+  height: 100px;
+  width: 300px;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ffaf80;
+  font-size: 16px;
+  resize: none;
+  margin-bottom: 5vh;
+}
+
+.buy-red-btn {
+  border: 1px solid #ffaf80;
+  background-color: #ffe7dc;
+  border-radius: 4px;
+  height: 33px;
+  width: 115px;
+  padding: 5px 10px;
+  margin-right: 20px;
+  text-decoration: none;
+  color: black;
+  font-size: 13px;
+}
+
+.back-btn {
+  border: 1px solid #a5a5a5;
+  border-radius: 4px;
+  height: 33px;
+  width: 50px;
+  padding: 5px;
+  margin-right: 10px;
+  text-decoration: none;
+  color: black;
+  font-size: 13px;
+}

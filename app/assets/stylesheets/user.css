@@ -1,0 +1,21 @@
+.main {
+  background-color: #FFFFFF;
+  position: absolute;
+  top: 100px;
+  left: 300px;
+  height: calc(100vh - 100px - 50px);
+  width: calc(100vw - 300px);
+  padding: 50px;
+  overflow: hidden scroll;
+}
+
+.field {
+  padding-bottom: 30px;
+}
+
+.field input[type="text"], input[type="email"], input[type="password"]{
+  width: 150px;
+  height: 25px;
+  border-radius: 2px;
+  border: 1px solid #ffaf80;
+}
