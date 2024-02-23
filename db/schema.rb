@@ -10,7 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_02_22_051544) do
+ActiveRecord::Schema.define(version: 2024_02_23_014712) do
+
+  create_table "coaches", charset: "utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "rank_id", null: false
+    t.string "kill_rate", null: false
+    t.text "character", null: false
+    t.string "play_style", null: false
+    t.string "play_time", null: false
+    t.text "play_device", null: false
+    t.text "communication_tool", null: false
+    t.string "price", null: false
+    t.string "times_to_teach", null: false
+    t.integer "rank_limit_id", null: false
+    t.text "appeal_point", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_coaches_on_user_id"
+  end
+
+  create_table "room_users", charset: "utf8", force: :cascade do |t|
+    t.bigint "room_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "coach_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coach_id"], name: "index_room_users_on_coach_id"
+    t.index ["room_id"], name: "index_room_users_on_room_id"
+    t.index ["user_id"], name: "index_room_users_on_user_id"
+  end
+
+  create_table "rooms", charset: "utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "nickname", null: false
@@ -26,4 +60,8 @@ ActiveRecord::Schema.define(version: 2024_02_22_051544) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "coaches", "users"
+  add_foreign_key "room_users", "coaches"
+  add_foreign_key "room_users", "rooms"
+  add_foreign_key "room_users", "users"
 end
