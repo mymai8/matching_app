@@ -1,0 +1,37 @@
+<div class="wrapper">
+  <%= render "shared/header" %>
+    <div class="side-bar">
+      <%= render "shared/side_bar" %>
+    </div>
+    <div class="main">
+      <div class='student-info'>
+        <h2 class='student-detail'>
+          生徒情報詳細
+        </h2>
+        <div class='studenting-detail'>
+          <span>生徒名　　　　　　　　　：<%= @student.user.nickname %></span><br>
+          <span>生徒の最高ランク　　　　：<%= @student.rank.name %></span><br>
+          <span>キルレート　　　　　　　：<%= @student.kill_rate %></span><br>
+          <span>キャラクター　　　　　　：<%= @student.character %></span><br>
+          <span>プレイスタイル　　　　　：<%= @student.play_style %></span><br>
+          <span>プレイ時間帯　　　　　　：<%= @student.play_time %></span><br>
+          <span>プラットフォーム　　　　：<%= @student.play_device %></span><br>
+          <span>コミュニケーションツール：<%= @student.communication_tool %></span><br>
+          <span>希望コーチング回数　　　：<%= @student.times_to_teach %>回</span><br>
+          <span>予算　　　　　　　　　　：<%= @student.price %>円</span><br>
+          <span>意気込み　　　　　　　　：<%= @student.enthusiasm_text %></span>
+        </div>
+      </div>
+      
+      <% if current_user == @student.user %>
+        <div class="btn">
+          <%= link_to "生徒情報の編集", edit_student_path(@student), method: :get, class: "student-edit-btn" %>
+          <%= button_to "削除", '#', method: :delete, class:"student-destroy-btn" %>
+        </div>
+
+      <% elsif user_signed_in? %>
+        <%#= link_to "コメント", student_comments_path(@student), method: :get, class:"student-comment-btn"%>
+      <% end %>
+    </div>
+  <%= render "shared/footer" %>
+</div>

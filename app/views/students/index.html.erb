@@ -1,0 +1,29 @@
+<div class="wrapper">
+  <%= render "shared/header" %>
+    <div class="side-bar">
+      <%= render "shared/side_bar" %>
+    </div>
+    <div class="main">
+      <div class="student-main">
+        <% @students.each do |student| %>
+          <%= link_to student_path(student) do %>
+          <div class='student-info'>
+            <div class='student-nickname'>
+              <span>生徒名：<%= student.user.nickname %></span>
+            </div>
+            <div class='students-info'>
+              <span>生徒の最高ランク　　　　：<%= student.rank.name %></span><br>
+              <span>プレイ時間帯　　　　　　：<%= student.play_time %></span><br>
+              <span>プラットフォーム　　　　：<%= student.play_device %></span><br>
+              <span>コミュニケーションツール：<%= student.communication_tool %></span><br>
+              <span>希望コーチング回数　　　：<%= student.times_to_teach %>回</span><br>
+              <span>予算　　　　　　　　　　：<%= student.price %>円</span><br>
+              <span>意気込み　　　　　　　　：<%= student.enthusiasm_text %></span>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <%= render "shared/footer" %>
+</div>
