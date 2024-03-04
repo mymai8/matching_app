@@ -20,8 +20,8 @@ class CoachesController < ApplicationController
   end
 
   def show
-    @comments = @coach.comments.includes(:user)
-    @comment = Comment.new
+    # @comments = @coach.comments.includes(:user)
+    # @comment = Comment.new
   end
 
   def edit
