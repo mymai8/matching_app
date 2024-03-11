@@ -20,6 +20,8 @@ class StudentsController < ApplicationController
   end
 
   def show
+    @chats = @student.chats.includes(:user)
+    @chat = Chat.new
   end
 
   def edit

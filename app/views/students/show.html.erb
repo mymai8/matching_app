@@ -28,10 +28,26 @@
           <%= link_to "生徒情報の編集", edit_student_path(@student), method: :get, class: "student-edit-btn" %>
           <%= button_to "削除", '#', method: :delete, class:"student-destroy-btn" %>
         </div>
-
-      <% elsif user_signed_in? %>
-        <%#= link_to "コメント", student_comments_path(@student), method: :get, class:"student-comment-btn"%>
       <% end %>
+
+      <div class="chats">
+        <h4>＜コメント一覧＞</h4>
+          <% @student.chats.each do |chat| %>
+            <div class="chat">
+              <p class="user-info"><%= chat.user.nickname %>： </p>
+              <p><%= chat.text%></p>
+            </div>
+          <% end %>
+      </div>
+
+      <div class="chat-form">
+        <% if user_signed_in? %>
+          <%= form_with model: [@student, @chat], id: "chat-form" do |f| %>
+            <%= f.text_area :text , class: "chat-text"%>
+            <%= f.submit "コメントをする", class: "chat-submit" %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   <%= render "shared/footer" %>
 </div>
