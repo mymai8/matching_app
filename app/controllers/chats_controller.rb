@@ -4,6 +4,7 @@ class ChatsController < ApplicationController
     @student = Student.find(params[:student_id])
     if @chat.save
       ChatChannel.broadcast_to @student, { chat: @chat, user: @chat.user }
+      redirect_to request.referer
     end 
   end
 
