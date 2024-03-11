@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :rooms, only: [:new, :create]  
 
   resources :students do
-    resources :comments, only: [:create, :delete]
+    resources :chats, only: [:create, :delete]
   end
 
   root to: 'coaches#index'

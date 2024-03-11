@@ -18,5 +18,6 @@ class Coach < ApplicationRecord
   end
   
   belongs_to :user
+  has_many :orders
   has_many :comments
 end
