@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
   resources :users, only:[:edit, :update]
   
-  resources :rooms, only: [:new, :create]  
+  resources :rooms, only: [:new, :create]
 
   resources :students do
     resources :chats, only: [:create, :delete]
