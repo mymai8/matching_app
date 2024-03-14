@@ -1,0 +1,15 @@
+<div class="wrapper">
+  <%= render "shared/header" %>
+    <div class="side-bar">
+      <%= render "shared/side_bar" %>
+    </div>
+    <div class="main">
+      <div class="chat-room">
+        <h1>ご購入ありがとうございます<br>チャットルームへ遷移します</h1>
+        <%=form_with model: @room, local: true do |f|%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <%= render "shared/footer" %>
+</div>

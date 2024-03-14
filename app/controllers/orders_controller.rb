@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
     if @order_form.valid?
       match
       @order_form.save
-      redirect_to root_path
+      redirect_to new_room_path
     else
       render :index
     end

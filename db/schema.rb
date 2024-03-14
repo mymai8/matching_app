@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_03_05_022322) do
+ActiveRecord::Schema.define(version: 2024_03_12_052833) do
 
   create_table "chats", charset: "utf8", force: :cascade do |t|
     t.text "text"
@@ -71,6 +71,15 @@ ActiveRecord::Schema.define(version: 2024_03_05_022322) do
     t.index ["order_id"], name: "index_payments_on_order_id"
   end
 
+  create_table "room_coaches", charset: "utf8", force: :cascade do |t|
+    t.bigint "room_id", null: false
+    t.bigint "coach_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coach_id"], name: "index_room_coaches_on_coach_id"
+    t.index ["room_id"], name: "index_room_coaches_on_room_id"
+  end
+
   create_table "room_users", charset: "utf8", force: :cascade do |t|
     t.bigint "room_id", null: false
     t.bigint "user_id", null: false
@@ -123,6 +132,8 @@ ActiveRecord::Schema.define(version: 2024_03_05_022322) do
   add_foreign_key "orders", "users"
   add_foreign_key "payments", "coaches"
   add_foreign_key "payments", "orders"
+  add_foreign_key "room_coaches", "coaches"
+  add_foreign_key "room_coaches", "rooms"
   add_foreign_key "room_users", "coaches"
   add_foreign_key "room_users", "rooms"
   add_foreign_key "room_users", "users"
