@@ -4,7 +4,6 @@ class CommentsController < ApplicationController
     @coach = Coach.find(params[:coach_id])
     if @comment.save
       CommentChannel.broadcast_to @coach, { comment: @comment, user: @comment.user }
-      redirect_to request.referer
     end 
   end
 
