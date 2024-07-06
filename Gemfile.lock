@@ -90,6 +90,10 @@ GEM
       responders
       warden (~> 1.2.3)
     domain_name (0.6.20240107)
+    dotenv (3.1.2)
+    dotenv-rails (3.1.2)
+      dotenv (= 3.1.2)
+      railties (>= 6.1)
     erubi (1.12.0)
     ffi (1.16.3)
     globalid (1.2.1)
@@ -260,6 +264,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   devise
+  dotenv-rails
   jbuilder (~> 2.7)
   listen (~> 3.3)
   mysql2 (~> 0.5)

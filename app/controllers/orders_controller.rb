@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
     if @order_form.valid?
       match
       @order_form.save
-      redirect_to new_room_path
+      redirect_to coach_rooms_path
     else
       render :index
     end
@@ -38,5 +38,9 @@ class OrdersController < ApplicationController
     if current_user.id == @coach.user_id
       redirect_to root_path
     end
+  end
+
+  def create_dm_room
+    Room.create(user_id: current_user.id, coach_id: @coach.id)
   end
 end

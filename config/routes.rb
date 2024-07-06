@@ -5,8 +5,6 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
   resources :users, only:[:edit, :update]
-  
-  resources :rooms, only: [:new, :create]
 
   resources :students do
     resources :chats, only: [:create, :delete]
@@ -16,5 +14,10 @@ Rails.application.routes.draw do
   resources :coaches do
     resources :orders, only: [:index, :create]
     resources :comments, only: [:create, :delete]
+    resources :rooms, only: [:new, :create, :index, :show]
+  end
+
+  resources :rooms, only: [:index, :show, :create] do
+    resources :directmessages, only: [:create]
   end
 end

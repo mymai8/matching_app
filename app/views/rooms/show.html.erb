@@ -1,0 +1,15 @@
+<h1>Chat with <%= @room.coach.name %></h1>
+<%= form_with(model: [ @room, DirectMessage.new ], local: true) do |form| %>
+  <p>
+    <%= form.label :content %><br>
+    <%= form.text_area :content %>
+  </p>
+  <p>
+    <%= form.submit 'Send' %>
+  </p>
+<% end %>
+
+<h2>Messages</h2>
+<% @directmessages.each do |directmessage| %>
+  <p><%= directmessage.user.name %>: <%= directmessage.content %></p>
+<% end %>

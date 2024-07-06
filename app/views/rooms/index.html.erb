@@ -1,0 +1,3 @@
+<% @rooms.each do |room| %>
+  <p>hello<%= link_to "Room with #{room.coach.name}", room_path(room) %></p>
+<% end %>

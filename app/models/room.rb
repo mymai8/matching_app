@@ -1,6 +1,5 @@
 class Room < ApplicationRecord
-  has_many :room_users
-  has_many :room_coaches
-  has_many :users, through: :room_users
-  has_many :coaches, through: :room_coaches
+  belongs_to :user
+  belongs_to :coach
+  has_many :directmessages, dependent: :destroy
 end

@@ -12,6 +12,6 @@ class User < ApplicationRecord
   has_many :orders
   has_many :comments
   has_many :chats
-  has_many :room_users
-  has_many :rooms, through: :room_users
+  has_many :rooms
+  has_many :directmessages
 end

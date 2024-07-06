@@ -20,6 +20,5 @@ class Coach < ApplicationRecord
   belongs_to :user
   has_many :orders
   has_many :comments
-  has_many :room_coaches
-  has_many :rooms, through: :room_coaches
+  has_many :rooms
 end

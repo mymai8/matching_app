@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_03_12_052833) do
+ActiveRecord::Schema.define(version: 2024_07_03_053219) do
 
   create_table "chats", charset: "utf8", force: :cascade do |t|
     t.text "text"
@@ -46,6 +46,24 @@ ActiveRecord::Schema.define(version: 2024_03_12_052833) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "directmessages", charset: "utf8", force: :cascade do |t|
+    t.bigint "room_id", null: false
+    t.bigint "user_id", null: false
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_directmessages_on_room_id"
+    t.index ["user_id"], name: "index_directmessages_on_user_id"
+  end
+
+  create_table "messages", charset: "utf8", force: :cascade do |t|
+    t.text "text"
+    t.integer "user_id"
+    t.integer "room_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "orders", charset: "utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "coach_id", null: false
@@ -71,29 +89,13 @@ ActiveRecord::Schema.define(version: 2024_03_12_052833) do
     t.index ["order_id"], name: "index_payments_on_order_id"
   end
 
-  create_table "room_coaches", charset: "utf8", force: :cascade do |t|
-    t.bigint "room_id", null: false
-    t.bigint "coach_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["coach_id"], name: "index_room_coaches_on_coach_id"
-    t.index ["room_id"], name: "index_room_coaches_on_room_id"
-  end
-
-  create_table "room_users", charset: "utf8", force: :cascade do |t|
-    t.bigint "room_id", null: false
+  create_table "rooms", charset: "utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "coach_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["coach_id"], name: "index_room_users_on_coach_id"
-    t.index ["room_id"], name: "index_room_users_on_room_id"
-    t.index ["user_id"], name: "index_room_users_on_user_id"
-  end
-
-  create_table "rooms", charset: "utf8", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coach_id"], name: "index_rooms_on_coach_id"
+    t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
   create_table "students", charset: "utf8", force: :cascade do |t|
@@ -128,14 +130,13 @@ ActiveRecord::Schema.define(version: 2024_03_12_052833) do
   end
 
   add_foreign_key "coaches", "users"
+  add_foreign_key "directmessages", "rooms"
+  add_foreign_key "directmessages", "users"
   add_foreign_key "orders", "coaches"
   add_foreign_key "orders", "users"
   add_foreign_key "payments", "coaches"
   add_foreign_key "payments", "orders"
-  add_foreign_key "room_coaches", "coaches"
-  add_foreign_key "room_coaches", "rooms"
-  add_foreign_key "room_users", "coaches"
-  add_foreign_key "room_users", "rooms"
-  add_foreign_key "room_users", "users"
+  add_foreign_key "rooms", "coaches"
+  add_foreign_key "rooms", "users"
   add_foreign_key "students", "users"
 end
