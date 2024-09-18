@@ -4,6 +4,7 @@ class CoachesController < ApplicationController
 
   def index
     @coaches = Coach.order("created_at DESC")
+    @user = User.where(role_id: 2)
   end
 
   def new

@@ -1,17 +1,25 @@
 <div class='side-bar'>
-  <div class="coaches">
-    <div class="coach-title">
-      <%= link_to 'コーチ一覧', root_path, method: :get, class: "coach-list" %>
+  <% if user_signed_in? %>
+    <div class="coaches">
+      <div class="coach-title">
+        <%= link_to 'コーチング一覧', root_path, method: :get, class: "coach-list" %>
+      </div>
     </div>
-  </div>
-  <div class="students">
-    <div class="student-title">
-      <%= link_to '生徒一覧', students_index_path, method: :get, class: "student-list" %>
+    <div class="students">
+      <div class="student-title">
+        <%= link_to '生徒一覧', students_index_path, method: :get, class: "student-list" %>
+      </div>
     </div>
-  </div>
-  <div class="rooms">
-    <div class='room-title'>
-      <%= link_to 'ルーム一覧', root_path, method: :get, class: "room-list" %>
+    <div class="rooms">
+      <div class='room-title'>
+        <%= link_to 'DM一覧', rooms_path, method: :get, class: "room-list" %>
+      </div>
     </div>
-  </div>
+  <% else %>
+    <div class="coaches">
+      <div class="coach-title">
+        <%= link_to 'コーチング一覧', root_path, method: :get, class: "coach-list" %>
+      </div>
+    </div>
+  <% end %>
 </div>

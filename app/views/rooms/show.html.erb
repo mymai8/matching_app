@@ -1,15 +1,28 @@
-<h1>Chat with <%= @room.coach.name %></h1>
-<%= form_with(model: [ @room, DirectMessage.new ], local: true) do |form| %>
-  <p>
-    <%= form.label :content %><br>
-    <%= form.text_area :content %>
-  </p>
-  <p>
-    <%= form.submit 'Send' %>
-  </p>
-<% end %>
+<div class="wrapper">
+  <%= render "shared/header" %>
+    <div class="side-bar">
+      <%= render "shared/side_bar" %>
+    </div>
 
-<h2>Messages</h2>
-<% @directmessages.each do |directmessage| %>
-  <p><%= directmessage.user.name %>: <%= directmessage.content %></p>
-<% end %>
+    <div class="main">
+      <h2><%= @room.coach.user.nickname %>コーチ</h2>
+      <%= form_with(model: [ @room, Directmessage.new ], local: true) do |form| %>
+        <p>
+          <%= form.label :ＤＭ %><br>
+          <%= form.text_area :content %>
+        </p>
+        <p>
+          <%= form.submit '送信' %>
+        </p>
+      <% end %>
+
+      <h3>メッセージ</h3>
+      <% @directmessages.each do |directmessage| %>
+        <p><%= directmessage.user.nickname %>: <%= directmessage.content %></p>
+      <% end %>
+    </div>
+  </div>
+  <%= render "shared/footer" %>
+</div>
+
+

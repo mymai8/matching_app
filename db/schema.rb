@@ -120,6 +120,7 @@ ActiveRecord::Schema.define(version: 2024_07_03_053219) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "game_name", null: false
+    t.integer "role_id", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

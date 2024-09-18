@@ -12,6 +12,7 @@ class OrdersController < ApplicationController
     if @order_form.valid?
       match
       @order_form.save
+      create_dm_room
       redirect_to coach_rooms_path
     else
       render :index

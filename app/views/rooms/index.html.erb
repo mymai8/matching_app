@@ -1,3 +1,46 @@
-<% @rooms.each do |room| %>
-  <p>hello<%= link_to "Room with #{room.coach.name}", room_path(room) %></p>
+<div class="wrapper">
+  <%= render "shared/header" %>
+    <div class="side-bar">
+      <%= render "shared/side_bar" %>
+    </div>
+
+    <div class="main">
+      <h1>DM一覧</h1>
+
+      <% if @rooms.any? %>
+        <ul>
+          <% @rooms.each do |room| %>
+            <li>
+              <% name = if current_user.role.id == 1
+                          room.user.nickname
+                        else
+                          room.coach.user.nickname
+                        end %>
+              <%= link_to "#{name}", room_path(room) %>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>DMはまだありません</p>
+      <% end %>
+
+    </div>
+  </div>
+  <%= render "shared/footer" %>
+</div>
+
+
+
+<h1>Your Rooms</h1>
+
+<% if @rooms.any? %>
+  <ul>
+    <% @rooms.each do |room| %>
+      <li>
+        <%= link_to "Room with #{room.coach.user.nickname}", room_path(room) %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>You have no rooms.</p>
 <% end %>
