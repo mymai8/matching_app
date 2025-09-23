@@ -7,13 +7,13 @@ Rails.application.routes.draw do
   resources :users, only:[:edit, :update]
 
   resources :students do
-    resources :chats, only: [:create, :delete]
+    resources :chats, only: [:create, :destroy]
   end
 
   root to: 'coaches#index'
   resources :coaches do
     resources :orders, only: [:index, :create]
-    resources :comments, only: [:create, :delete]
+    resources :comments, only: [:create, :destroy]
     resources :rooms, only: [:new, :create, :index, :show]
   end
 
