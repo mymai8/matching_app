@@ -1,10 +1,11 @@
 default: &default
+  adapter: sqlite3
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  adapter: mysql2
+  adapter: sqlite3
   username: root
   password: maiko
   host: localhost
@@ -12,7 +13,7 @@ development:
 
 test:
   <<: *default
-  adapter: mysql2
+  adapter: sqlite3
   username: root
   password:
   host: localhost
