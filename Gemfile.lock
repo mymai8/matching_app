@@ -188,7 +188,7 @@ GEM
       date
       stringio
     public_suffix (6.0.2)
-    puma (5.6.9)
+    puma (6.6.1)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.2.1)
@@ -329,7 +329,7 @@ DEPENDENCIES
   payjp
   pg (~> 1.5)
   pry-rails
-  puma (~> 5.0)
+  puma (~> 6.4)
   rack-mini-profiler (~> 2.0)
   rails (~> 8.0.3)
   sass-rails (>= 6)
