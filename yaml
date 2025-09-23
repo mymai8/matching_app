@@ -4,7 +4,7 @@ services:
     runtime: ruby
     plan: free
     autoDeploy: true
-    region: singapore            # ←Postgresと同じリージョンに合わせてください
+    region: oregon            # ←Postgresと同じリージョンに合わせてください
     buildCommand: "./bin/render-build.sh"
     startCommand: "bin/rails db:migrate && bin/rails server -b 0.0.0.0 -p $PORT"
     envVars:
@@ -20,4 +20,4 @@ services:
 databases:
   - name: matching-app-db
     plan: free
-    region: singapore            # ←webと同じ
+    region: oregon            # ←webと同じ
