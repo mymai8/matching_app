@@ -314,7 +314,7 @@ DEPENDENCIES
   dotenv-rails
   importmap-rails (~> 2.2)
   jbuilder (~> 2.7)
-  listen (~> 3.3)
+  listen (~> 3.8)
   payjp
   pg (~> 1.5)
   pry-rails
