@@ -11,7 +11,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
-  gem "sqlite3", "~> 1.4"   # ✅ sqlite3 はここだけにする
+  gem "sqlite3", "~> 2.1"   # ✅ sqlite3 はここだけにする
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
