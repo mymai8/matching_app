@@ -10,18 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_07_03_053219) do
-
-  create_table "chats", charset: "utf8", force: :cascade do |t|
+ActiveRecord::Schema[8.0].define(version: 2024_07_03_053219) do
+  create_table "chats", force: :cascade do |t|
     t.text "text"
     t.integer "user_id"
     t.integer "student_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "coaches", charset: "utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
+  create_table "coaches", force: :cascade do |t|
+    t.integer "user_id", null: false
     t.integer "rank_id", null: false
     t.string "kill_rate", null: false
     t.text "character", null: false
@@ -33,49 +32,49 @@ ActiveRecord::Schema.define(version: 2024_07_03_053219) do
     t.string "times_to_teach", null: false
     t.integer "rank_limit_id", null: false
     t.text "appeal_point", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_coaches_on_user_id"
   end
 
-  create_table "comments", charset: "utf8", force: :cascade do |t|
+  create_table "comments", force: :cascade do |t|
     t.text "text"
     t.integer "user_id"
     t.integer "coach_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "directmessages", charset: "utf8", force: :cascade do |t|
-    t.bigint "room_id", null: false
-    t.bigint "user_id", null: false
+  create_table "directmessages", force: :cascade do |t|
+    t.integer "room_id", null: false
+    t.integer "user_id", null: false
     t.text "content"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["room_id"], name: "index_directmessages_on_room_id"
     t.index ["user_id"], name: "index_directmessages_on_user_id"
   end
 
-  create_table "messages", charset: "utf8", force: :cascade do |t|
+  create_table "messages", force: :cascade do |t|
     t.text "text"
     t.integer "user_id"
     t.integer "room_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "orders", charset: "utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "coach_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table "orders", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "coach_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["coach_id"], name: "index_orders_on_coach_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
-  create_table "payments", charset: "utf8", force: :cascade do |t|
-    t.bigint "coach_id", null: false
-    t.bigint "order_id", null: false
+  create_table "payments", force: :cascade do |t|
+    t.integer "coach_id", null: false
+    t.integer "order_id", null: false
     t.integer "rank_id", null: false
     t.text "character", null: false
     t.string "play_style", null: false
@@ -83,23 +82,23 @@ ActiveRecord::Schema.define(version: 2024_07_03_053219) do
     t.text "play_device", null: false
     t.text "communication_tool", null: false
     t.text "goal", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["coach_id"], name: "index_payments_on_coach_id"
     t.index ["order_id"], name: "index_payments_on_order_id"
   end
 
-  create_table "rooms", charset: "utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "coach_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table "rooms", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "coach_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["coach_id"], name: "index_rooms_on_coach_id"
     t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
-  create_table "students", charset: "utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
+  create_table "students", force: :cascade do |t|
+    t.integer "user_id", null: false
     t.integer "rank_id", null: false
     t.string "kill_rate", null: false
     t.text "character", null: false
@@ -110,22 +109,22 @@ ActiveRecord::Schema.define(version: 2024_07_03_053219) do
     t.string "price", null: false
     t.string "times_to_teach", null: false
     t.text "enthusiasm_text", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_students_on_user_id"
   end
 
-  create_table "users", charset: "utf8", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "game_name", null: false
     t.integer "role_id", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "reset_password_sent_at", precision: nil
+    t.datetime "remember_created_at", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

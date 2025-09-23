@@ -6,7 +6,6 @@ ruby '3.4.6'
 gem 'rails', '~> 8.0.3'
 gem 'puma', '~> 6.4'
 gem 'sass-rails', '>= 6'
-gem 'webpacker', '~> 5.0'
 gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
@@ -40,3 +39,5 @@ group :production do
 end
 
 gem 'dotenv-rails', groups: [:development, :test]
+
+gem "importmap-rails", "~> 2.2"
